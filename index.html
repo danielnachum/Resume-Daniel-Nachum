@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resume | Daniel Nachum</title>
+<meta name="description" content="Daniel Nachum, hands-on product marketing manager for security and technical B2B SaaS. Category creation, positioning, launches and sales enablement.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f7f9; --card:#ffffff; --ink:#15181e; --muted:#5b6472; --line:#e3e6eb;
+  --accent:#2445d6; --accent-soft:#eaeefc; --chip:#f0f2f5;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0f1115; --card:#171a21; --ink:#e9ecf1; --muted:#9aa3b2; --line:#272c36;
+    --accent:#7d95ff; --accent-soft:#1d2440; --chip:#21252e;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0f1115; --card:#171a21; --ink:#e9ecf1; --muted:#9aa3b2; --line:#272c36;
+  --accent:#7d95ff; --accent-soft:#1d2440; --chip:#21252e;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:15.5px/1.6 Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+
+.topbar{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.topbar .in{max-width:880px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:12px}
+.topbar .name{font-weight:700;letter-spacing:-.01em;flex:1}
+.topbar nav{display:flex;gap:14px;font-size:14px}
+.topbar nav a{color:var(--muted)}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;border:0;border-radius:10px;padding:9px 16px;font:600 14px Inter,sans-serif;cursor:pointer;text-decoration:none}
+.btn:hover{text-decoration:none;filter:brightness(1.08)}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.icon-btn{background:transparent;border:1px solid var(--line);color:var(--muted);border-radius:10px;width:36px;height:36px;cursor:pointer;font-size:16px}
+
+main{max-width:880px;margin:0 auto;padding:28px 16px 64px}
+.hero{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:32px}
+.hero h1{margin:0;font-size:36px;letter-spacing:-.02em;line-height:1.15}
+.hero .tag{margin:8px 0 18px;color:var(--muted);font-size:16px}
+.contact{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14px;color:var(--muted)}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0 0}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
+.stat b{display:block;font-size:18px;line-height:1.3;letter-spacing:-.01em}
+.stat span{font-size:13px;color:var(--muted);line-height:1.4;display:block}
+
+section{margin-top:36px}
+section > h2{font-size:13px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin:0 0 12px}
+
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.chip{background:var(--chip);color:var(--ink);border:1px solid transparent;border-radius:999px;padding:6px 12px;font:500 13px Inter,sans-serif;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+
+.role{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 24px;margin-bottom:12px}
+.role header{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline}
+.role h3{margin:0;font-size:18px;letter-spacing:-.01em}
+.role .co{color:var(--muted);font-weight:500}
+.role .dates{font-size:13px;color:var(--muted);white-space:nowrap}
+.role .note{font-size:13px;color:var(--muted);margin:4px 0 0}
+.role ul{margin:12px 0 0;padding-left:18px}
+.role li{margin:6px 0}
+.role li.dim{opacity:.28}
+.role li.hit{background:linear-gradient(transparent 60%,var(--accent-soft) 60%)}
+.role .more{display:none}
+.role.open .more{display:list-item}
+.toggle{margin-top:10px;background:none;border:0;color:var(--accent);font:600 13px Inter,sans-serif;cursor:pointer;padding:0}
+.role.compact{padding:16px 24px}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 24px}
+.box h3{margin:0 0 6px;font-size:15px}
+.box p{margin:4px 0;color:var(--muted);font-size:14px}
+.tools span{display:inline-block;background:var(--chip);border-radius:8px;padding:3px 9px;margin:3px 4px 3px 0;font-size:13px}
+
+footer{margin-top:40px;font-size:13px;color:var(--muted);text-align:center}
+
+@media (max-width:680px){
+  .topbar nav{display:none}
+  .hero{padding:24px}
+  .hero h1{font-size:28px}
+  .stats{grid-template-columns:1fr 1fr}
+  .grid2{grid-template-columns:1fr}
+  .role{padding:18px}
+}
+@media print{
+  .topbar,.filters,.toggle,.ctas,footer,.icon-btn{display:none!important}
+  body{background:#fff;color:#000;font-size:11pt}
+  .role .more{display:list-item}
+  .hero,.role,.box,.stat,.role.compact{border:0!important;padding:0!important;border-radius:0;margin:0 0 8px}
+  .stats{display:none}
+  main{padding:0}
+  body{font-size:9.5pt;line-height:1.4}
+  .hero h1{font-size:20pt}
+  .hero .tag{margin:2px 0 6px;font-size:10.5pt}
+  section{margin-top:12px}
+  section > h2{margin:0 0 6px;border-bottom:1px solid #999;padding-bottom:2px;color:#000}
+  .role h3{font-size:10.5pt}
+  .role ul{margin:3px 0 0}
+  .role li{margin:1px 0}
+  .role .note{margin:0}
+  .grid2{gap:4px 16px}
+  .tools span{background:none;padding:0;margin:0 6px 0 0}
+  .tools span + span::before{content:", "}
+  .box p{margin:1px 0}
+  a{color:#000}
+  .role,.box{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="in">
+  <div class="name">Daniel Nachum</div>
+  <nav><a href="#experience">Experience</a><a href="#education">Education</a><a href="#skills">Skills</a></nav>
+  <button class="icon-btn" id="theme" aria-label="Toggle dark mode">&#9680;</button>
+  <a class="btn" href="Daniel-Nachum-Resume.pdf" download>&#8595; Download PDF</a>
+</div></div>
+
+<main>
+  <div class="hero">
+    <h1>Daniel Nachum</h1>
+    <p class="tag">Hands-on PMM | Security B2B SaaS | Category creation | Sales enablement</p>
+    <div class="contact">
+      <span>Tel Aviv, Israel</span>
+      <a href="mailto:oberman.daniel@gmail.com">oberman.daniel@gmail.com</a>
+      <a href="https://www.linkedin.com/in/daniel-nachum-6b910b1bb/" target="_blank" rel="noopener">LinkedIn (see Recommendations)</a>
+      <a href="https://github.com/danielnachum" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <div class="ctas">
+      <a class="btn" href="Daniel-Nachum-Resume.pdf" download>&#8595; Download resume (PDF)</a>
+      <a class="btn ghost" href="mailto:oberman.daniel@gmail.com">Email me</a>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><b>Category shift</b><span>Offensive cyber to digital intelligence at Cellebrite</span></div>
+    <div class="stat"><b>Acquired</b><span>Windward, 2025. I owned its AI positioning</span></div>
+    <div class="stat"><b>3</b><span>Technical product launches at Windward</span></div>
+    <div class="stat"><b>Founding PMM</b><span>Built product marketing from scratch at Demostack</span></div>
+  </div>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <div class="filters" role="group" aria-label="Highlight experience by topic">
+      <button class="chip" aria-pressed="true" data-f="all">All</button>
+      <button class="chip" aria-pressed="false" data-f="security">Security</button>
+      <button class="chip" aria-pressed="false" data-f="positioning">Positioning &amp; category</button>
+      <button class="chip" aria-pressed="false" data-f="launch">Launches</button>
+      <button class="chip" aria-pressed="false" data-f="enable">Sales enablement</button>
+      <button class="chip" aria-pressed="false" data-f="proof">Customer proof</button>
+      <button class="chip" aria-pressed="false" data-f="ai">AI</button>
+    </div>
+
+    <article class="role">
+      <header><h3>Founding Product Marketing Manager <span class="co">· Demostack, Tel Aviv</span></h3><span class="dates">Mar 2026 – Aug 2026</span></header>
+      <p class="note">Role eliminated in a layoff that cut 60% of the company's workforce</p>
+      <ul>
+        <li data-t="positioning">Built product marketing from scratch as the first PMM hire and shifted the business toward enterprise deals, working with sales on every opportunity side by side.</li>
+        <li data-t="launch positioning ai enable">Led the launch of the company's AI and agentic offering (enablement agents and MCP), owning positioning, naming, value-driven messaging, competitor differentiation, sales collateral, customer validation, website content, PR, enablement and launch comms.</li>
+        <li data-t="proof">Engaged directly with customers and prospects (F2F, Zoom, Gong) to surface unknown use cases and needs that shaped the roadmap and positioning, and to create customer proof such as case studies, testimonials and G2 reviews.</li>
+        <li class="more" data-t="ai">Built AI agents with Claude Cowork to automate long-standing bottlenecks in case study creation and product launches.</li>
+        <li class="more" data-t="">Drove pipeline and brand exposure through community- and partner-led collaborations, including a <a href="https://www.linkedin.com/posts/demostack_the-best-product-loses-if-the-demo-flops-activity-7465016895163998208-j6Tu" target="_blank" rel="noopener">vibe coding hackathon</a> that generated 3 enterprise SQLs, plus organic and paid campaigns built on product marketing content.</li>
+      </ul>
+      <button class="toggle">Show more</button>
+    </article>
+
+    <article class="role compact">
+      <header><h3>Manager <span class="co">· PMMiya Community, Tel Aviv</span></h3><span class="dates">Feb 2026 – Present</span></header>
+      <ul><li data-t="">Manage Israel's largest <a href="https://www.linkedin.com/company/pmmiya-podcast/posts/?feedView=all" target="_blank" rel="noopener">product marketing community</a>, running events, podcasts and webinars packed with practical GTM insights.</li></ul>
+    </article>
+
+    <article class="role">
+      <header><h3>Hands-on Product Marketing Manager <span class="co">· Windward Maritime AI, Tel Aviv</span></h3><span class="dates">May 2023 – May 2025</span></header>
+      <ul>
+        <li data-t="positioning ai">Owned the positioning and messaging of the company's AI story, contributing to <a href="https://www.calcalistech.com/ctechnews/article/sy311ob00hyl" target="_blank" rel="noopener">its acquisition in 2025</a>.</li>
+        <li data-t="launch security">Launched 3 technical products, translating deep technical capabilities into a clear, buyer-facing narrative for risk, compliance and security teams.</li>
+        <li data-t="positioning launch enable">Led go-to-market strategy and execution, from identifying audiences, use cases and USPs to training the business unit and deploying the marketing plan, with a data-driven focus on measurable outcomes and KPIs.</li>
+        <li data-t="positioning">Worked with analysts (such as Gartner), industry thought leaders and <a href="https://lnkd.in/p/dthfsqqm" target="_blank" rel="noopener">award organizations</a> to position Windward as a category leader.</li>
+        <li class="more" data-t="enable">Enabled sales and CS with battlecards, objection handling, discovery guides, one-pagers, sales slides, competitive analyses and FAQs.</li>
+        <li class="more" data-t="enable">Served as the company's subject matter expert on domain and product topics, training customer-facing teams and representing the company in webinars, analyst briefings and industry conferences.</li>
+        <li class="more" data-t="proof">Wrote product marketing content for enterprise sales cycles, matching landing pages, case studies, whitepapers and webinars to the right audiences to move prospects through the funnel.</li>
+        <li class="more" data-t="positioning proof">Represented the voice of the market, talking to customers and prospects directly, tracking the competitive landscape and turning those insights into positioning, campaign and product decisions.</li>
+        <li class="more" data-t="">Developed user-facing content, including user guides, feature announcements and demo videos, focused on clarity and practical value.</li>
+      </ul>
+      <button class="toggle">Show more</button>
+    </article>
+
+    <article class="role">
+      <header><h3>Senior Manager, Product Marketing <span class="co">· Cellebrite (NASDAQ: CLBT), Petah Tikva</span></h3><span class="dates">Dec 2021 – Apr 2023</span></header>
+      <ul>
+        <li data-t="security positioning">Led the category shift from offensive cybersecurity to digital intelligence, owning positioning, the competitive narrative and GTM materials for security, intelligence and law enforcement buyers.</li>
+        <li data-t="launch">Led product launches end to end with Product and R&amp;D, from naming and positioning to sales narrative, launch assets and GTM across channels.</li>
+        <li data-t="enable security">Armed sales with the enablement reps used to close deals: battlecards, objection handling, discovery guides, demo narratives, competitive analyses and sales presentations.</li>
+        <li class="more" data-t="enable">Ran large-scale training events, including SKO, giving sales and CS teams sharp narratives and the product expertise needed to win deals.</li>
+        <li class="more" data-t="proof">Built ongoing customer engagement programs: testimonials, customer surveys that became published reports, and localized field activities.</li>
+        <li class="more" data-t="security">Translated deep technical forensic capabilities into sharp, buyer-facing content for inbound and outbound channels.</li>
+      </ul>
+      <button class="toggle">Show more</button>
+    </article>
+
+    <div class="grid2">
+      <article class="role compact"><header><h3>B2C Marketing Manager <span class="co">· Big Shot</span></h3></header><p class="note">Tel Aviv · Dec 2020 – Dec 2021</p></article>
+      <article class="role compact"><header><h3>Website Content Creator &amp; Editor <span class="co">· Globes</span></h3></header><p class="note">Rishon LeZion · Feb 2019 – Nov 2020</p></article>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="grid2">
+      <div class="box"><h3>B.A. Politics, Sociology &amp; Communication</h3><p>The Academic College of Tel Aviv-Yaffo · Magna cum laude · 2017</p></div>
+      <div class="box"><h3>Economics studies</h3><p>Hebrew University · 2020</p></div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills &amp; tools</h2>
+    <div class="box tools">
+      <p><b>Languages:</b> Hebrew, English (bilingual)</p>
+      <p style="margin-top:10px"><b>Content &amp; AI</b></p>
+      <span>Claude</span><span>Claude Cowork</span><span>ChatGPT</span><span>Gemini</span><span>Figma</span><span>Canva</span><span>Google Slides</span><span>Office 365</span><span>Infogram</span>
+      <p style="margin-top:10px"><b>CRM &amp; ops</b></p>
+      <span>HubSpot</span><span>Salesforce</span><span>Monday</span><span>Asana</span><span>GetResponse</span>
+      <p style="margin-top:10px"><b>Sales enablement</b></p>
+      <span>Guru</span><span>Seismic</span><span>Gong</span><span>Google Drive</span>
+    </div>
+  </section>
+
+  <footer>I built this page with Claude and published it on GitHub Pages. The PDF has the same content. · <a href="Daniel-Nachum-Resume.pdf" download>Download PDF</a></footer>
+</main>
+
+<script>
+(function(){
+  var root=document.documentElement, t=document.getElementById('theme');
+  try{var s=localStorage.getItem('theme'); if(s) root.setAttribute('data-theme',s);}catch(e){}
+  t.addEventListener('click',function(){
+    var dark = root.getAttribute('data-theme')==='dark' || (!root.getAttribute('data-theme') && matchMedia('(prefers-color-scheme: dark)').matches);
+    var n = dark?'light':'dark'; root.setAttribute('data-theme',n);
+    try{localStorage.setItem('theme',n);}catch(e){}
+  });
+  document.querySelectorAll('.toggle').forEach(function(b){
+    b.addEventListener('click',function(){
+      var r=b.closest('.role'); r.classList.toggle('open');
+      b.textContent = r.classList.contains('open')?'Show less':'Show more';
+    });
+  });
+  var chips=document.querySelectorAll('.chip');
+  chips.forEach(function(c){
+    c.addEventListener('click',function(){
+      chips.forEach(function(x){x.setAttribute('aria-pressed','false')});
+      c.setAttribute('aria-pressed','true');
+      var f=c.dataset.f;
+      document.querySelectorAll('.role li').forEach(function(li){
+        li.classList.remove('dim','hit');
+        if(f==='all') return;
+        var tags=(li.dataset.t||'').split(' ');
+        if(tags.indexOf(f)>-1){ li.classList.add('hit'); } else { li.classList.add('dim'); }
+      });
+      document.querySelectorAll('.role').forEach(function(r){
+        var tb=r.querySelector('.toggle');
+        if(f!=='all' && r.querySelector('.more.hit')){ r.classList.add('open'); if(tb) tb.textContent='Show less'; }
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>
