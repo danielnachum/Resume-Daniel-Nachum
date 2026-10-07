@@ -17,6 +17,10 @@ main{max-width:900px;margin:0 auto;padding:0 16px 48px}
 .sheet img{display:block;width:100%;height:auto}
 .lk{position:absolute;display:block}
 .lk:hover{background:rgba(26,115,232,.12)}
+.lk::after{content:"";position:absolute;inset:-6px -3px}
+@media (max-width:700px){.lk::after{inset:-12px -6px}
+.lk[href^="mailto:"]::after,.lk[href*="youtube.com"]::after{inset:-12px -6px 0}
+.lk[href="https://github.com/danielnachum"]::after,.lk[href*="linkedin.com/in/"]::after,.lk[href*="pmmiya-podcast"]::after{inset:0 -6px -12px}}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:pre-wrap}
 @media print{.bar{display:none}body{background:#fff}.sheet{box-shadow:none;margin:0;break-after:page}}
 </style>
