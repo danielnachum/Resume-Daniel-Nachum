@@ -138,5 +138,27 @@ Technical Proficiencies:
 
 </div>
 </main>
+<script>
+(function(){
+  var TOPIC="dn-cv-df6c98e29a5e35ac", PAGE="Main CV page";
+  var q; try { q = new URLSearchParams(location.search); } catch(e) { q = null; }
+  try {
+    if (q && q.has("me")) localStorage.setItem("cv_owner","1");
+    if (localStorage.getItem("cv_owner")) return;
+  } catch(e) {}
+  if (/bot|crawl|spider|preview|headless|facebookexternalhit|whatsapp/i.test(navigator.userAgent)) return;
+  var src = (q && q.get("src")) || "";
+  function ping(title, msg, tag) {
+    try {
+      fetch("https://ntfy.sh/" + TOPIC + "?title=" + encodeURIComponent(title) + "&tags=" + tag,
+        { method: "POST", body: msg, keepalive: true }).catch(function(){});
+    } catch(e) {}
+  }
+  var where = PAGE + (src ? " | source: " + src : "");
+  ping("CV opened", "Someone opened your CV (" + where + ")", "eyes");
+  var dl = document.querySelector("a.dl");
+  if (dl) dl.addEventListener("click", function(){ ping("CV downloaded", "Someone downloaded your CV PDF (" + where + ")", "inbox_tray"); });
+})();
+</script>
 </body>
 </html>
